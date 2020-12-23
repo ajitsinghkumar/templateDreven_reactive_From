@@ -20,16 +20,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'from-angular'`, () => {
+  it(`should have as title 'formReactiveTemplate'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('from-angular');
+    expect(app.title).toEqual('formReactiveTemplate');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement;
-    expect(compiled.querySelector('.content span').textContent).toContain('from-angular app is running!');
+    expect(compiled.querySelector('.content span').textContent).toContain('formReactiveTemplate app is running!');
   });
 });

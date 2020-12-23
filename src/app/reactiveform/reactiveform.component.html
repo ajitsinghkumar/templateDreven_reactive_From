@@ -1,0 +1,39 @@
+<div class="container">
+    <h4>Reactive  form</h4>
+    <form [formGroup]="reactiveform" (ngSubmit)="getreactiveform()">
+        <div class="form-group">
+          <label for="email">Email address:</label>
+          <input type="email" class="form-control" placeholder="Enter email" id="email"  name="email" formControlName="email">
+          <small *ngIf="reactiveform.get('email').touched && reactiveform.get('email').hasError('required')" style="color:red">Please enter email</small>
+          <small *ngIf="reactiveform.get('email').touched && reactiveform.get('email').hasError('email')" style="color:red">Please enter valid email</small>
+          <small *ngIf="reactiveform.get('email').touched && reactiveform.get('email').hasError('minlength')" style="color:red">Please enter min 5 characters</small>
+          <small *ngIf="reactiveform.get('email').touched && reactiveform.get('email').hasError('maxlength')" style="color:red">You can  enter max 20 characters</small>
+        </div>
+        <div class="form-group">
+          <label for="pwd">Password:</label>
+          <input type="password" class="form-control" placeholder="Enter password" id="pwd" name="password" formControlName="password">
+          <small *ngIf="reactiveform.get('password').touched && reactiveform.get('password').hasError('required')" style="color:red">Please enter password</small>
+        </div>
+        <div class="form-group">
+            <label for="pwd">Message</label>
+            <textarea  class="form-control" placeholder="Write something" id="message" name="message" formControlName="message"></textarea>
+            <small *ngIf="reactiveform.get('message').touched && reactiveform.get('message').hasError('required')" style="color:red">Please enter password</small>
+        </div>
+          <div class="form-group">
+            <input type="radio"   id="male" value="male" name="radiob" formControlName="radiob">
+            <label for="male">Male</label>
+          </div>
+          <div class="form-group">
+            <input type="radio"   id="female" value="female" name="radiob" formControlName="radiob">
+            <label for="female">Female</label>
+          </div>
+          <!-- <small *ngIf="radiob.invalid && radiob.touched" style="color:red">Please enter email</small> -->
+          <div class="form-group form-check">
+            <label class="form-check-label">
+              <input class="form-check-input" type="checkbox" name="agree" formControlName="agree"> Agree to terms
+            </label>
+            <small *ngIf="reactiveform.get('agree').touched && reactiveform.get('agree').hasError('required')" style="color:red">Please enter email</small>
+          </div>
+        <button type="submit" class="btn btn-primary" [disabled]="!reactiveform.valid">Submit</button>
+      </form>
+</div>
